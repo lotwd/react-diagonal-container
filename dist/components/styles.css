@@ -1,0 +1,80 @@
+.root{
+    width:100%;
+    position:relative;
+}
+.root.cropTop{
+    clip-path:inset(0px 0px -100vh 0px);
+}
+.root.cropBottom{
+    clip-path:inset(-100vh 0px 0px 0px);
+}
+.root.cropTop.cropBottom{
+    clip-path:inset(0px 0px 0px 0px);
+}
+.content-container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;    
+    transform:skewY(-5deg);
+    height:100%;
+    padding:5% 0;
+}
+.content{
+    transform:skewY(5deg);
+    color:white;
+    padding:50px 0;
+}
+.content.flip{
+    transform:skewY(-5deg);
+}
+.content-container.tiny,
+.content.flip.tiny{
+    transform:skewY(-1deg);
+}
+.content-container.small,
+.content.flip.small{
+    transform:skewY(-2deg);
+}
+.content-container.medium,
+.content.flip.medium{
+    transform:skewY(-3.5deg);
+}
+.content-container.large,
+.content.flip.large{
+    transform:skewY(-5deg);
+}
+.content-container.extreme,
+.content.flip.extreme{
+    transform:skewY(-7.5deg);
+}
+.content-container.catastrophic,
+.content.flip.catastrophic{
+    transform:skewY(-10deg);
+}
+.content-container.flip{
+    transform:skewY(5deg);
+}
+.content-container.flip.tiny,
+.content.tiny{
+    transform:skewY(1deg);
+}
+.content-container.flip.small,
+.content.small{
+    transform:skewY(2deg);
+}
+.content-container.flip.medium,
+.content.medium{
+    transform:skewY(3.5deg);
+}
+.content-container.flip.large,
+.content.large{
+    transform:skewY(5deg);
+}
+.content-container.flip.extreme,
+.content.extreme{
+    transform:skewY(7.5deg);
+}
+.content-container.flip.catastrophic,
+.content.catastrophic{
+    transform:skewY(10deg);
+}
