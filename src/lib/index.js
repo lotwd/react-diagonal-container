@@ -1,3 +1,3 @@
-import Tilt from './tilt';
+import Tilt from './components/tilt';
 
 export { Tilt };
