@@ -1,5 +1,7 @@
 # This package provides a container that can be skewed
 
+### Click [Here](https://lotwd.github.io/react-diagonal-container-demo/) for a demonstration
+
 ### Usage:
 
 `npm install react-diagonal-container`
@@ -25,6 +27,5 @@ containerBackground* | string | undefined | changes the color of the tilted elem
 spacingAfter | string | '150px' | sets the spacing between two tilted elements
 background | string | 'black' | sets the background color behind the tilted element
 
-### Note*:
-Either containerBackground or containerTopBackgroundColor and containerBottomBackgroundColor are require
+
 
