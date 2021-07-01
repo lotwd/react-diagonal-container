@@ -1,3 +1,3 @@
-import Tilt from './components/tilt';
+import DiagonalContainer from './components/diagonalContainer';
 
-export { Tilt };
+export { DiagonalContainer };
