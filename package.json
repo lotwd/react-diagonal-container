@@ -1,13 +1,13 @@
 {
-  "name": "tilted-container",
-  "version": "0.1.2",
+  "name": "react-diagonal-container",
+  "version": "0.1.0",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [ "dist", "README.md" ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lotwd/tilted-container.git"
+    "url": "git+https://github.com/lotwd/react-diagonal-container.git"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",

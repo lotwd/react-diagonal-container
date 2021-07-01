@@ -2,9 +2,13 @@
 
 ### Usage:
 
-`import { Tilt } from 'tilted-container'`
+`npm install react-diagonal-container`
 
-`<Tilt background="green" flattenBottom spacingAfter="200px">`
+`import { DiagonalContainer } from 'react-diagonal-container'`
+
+`<DiagonalContainer background="green" flattenBottom spacingAfter="200px">`
+`   {content}`
+`</DiagonalContainer>`
 
 
 ### Props:
@@ -22,5 +26,5 @@ spacingAfter | string | '150px' | sets the spacing between two tilted elements
 background | string | 'black' | sets the background color behind the tilted element
 
 ### Note*:
-Either containerBackground or containerTopBackgroundColor and containerBottomBackgroundColor are required
+Either containerBackground or containerTopBackgroundColor and containerBottomBackgroundColor are require
 
