@@ -1,17 +1,22 @@
 import React from 'react'
 import './styles.css'
 
-const Tilt = (
+const DiagonalContainer = (
     {
-        flip,
-        magnitude,
-        flattenTop,
-        flattenBottom,
-        containerTopBackgroundColor, 
-        containerBottomBackgroundColor, 
-        containerBackground, 
-        spacingAfter,
-        background, 
+        flip=false,
+        magnitude='small',
+        flattenTop=false,
+        flattenBottom=false,
+        containerTopBackgroundColor = null, 
+        containerBottomBackgroundColor = null, 
+        containerBackground = 'transparent', 
+        spacingAfter='150px',
+        background = 'black', 
+        shadow = false,
+        borderWidth = '0px',
+        borderColor = 'transparent',
+        roundedCorners = false,
+        tiltContent = false,
         children
     }) => {
     const rootBackgroundColor = containerTopBackgroundColor && containerBottomBackgroundColor
@@ -35,11 +40,15 @@ const Tilt = (
     const magClass = magnitude ? " " + magnitude : ""
     const cropTop = flattenTop ? " cropTop" : ""
     const cropBottom = flattenBottom ? " cropBottom" : ""
+    const boxShadow = shadow && !flattenTop && !flattenBottom ? " shadow" : ""
+    const borderRadius = roundedCorners && !flattenTop && !flattenBottom ? " rounded" : ""
+    const border = borderWidth && borderColor && !flattenTop && !flattenBottom ? `${borderWidth} solid ${borderColor}` : ""
+    const tiltedContent = tiltContent ? " tilt" : ""
     return (
         <>
         <div style={{background:rootBackgroundColor}} className={"root" + cropTop + cropBottom}>
-            <div style={{background:background}} className={"content-container" + flipClass + magClass} >
-                <div className={"content" + flipClass + magClass}>
+            <div style={{background:background, border:border}} className={"content-container" + flipClass + magClass + boxShadow + borderRadius} >
+                <div className={"content" + tiltedContent + flipClass + magClass}>
                     {children}  
                 </div>  
             </div>        
@@ -49,4 +58,4 @@ const Tilt = (
     )
 }
 
-export default Tilt
+export default DiagonalContainer
