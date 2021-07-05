@@ -38,22 +38,33 @@ const DiagonalContainer = (
         `transparent`
     const flipClass = flip ? " flip" : ""
     const magClass = magnitude ? " " + magnitude : ""
-    const cropTop = flattenTop ? " cropTop" : ""
-    const cropBottom = flattenBottom ? " cropBottom" : ""
+    const cropTop = flattenTop ? " crop-top" : ""
+    const cropBottom = flattenBottom ? " crop-bottom" : ""
     const boxShadow = shadow && !flattenTop && !flattenBottom ? " shadow" : ""
     const borderRadius = roundedCorners && !flattenTop && !flattenBottom ? " rounded" : ""
-    const border = borderWidth && borderColor && !flattenTop && !flattenBottom ? `${borderWidth} solid ${borderColor}` : ""
     const tiltedContent = tiltContent ? " tilt" : ""
+
+    const skewedBorderClasses = "skewed-border" + magClass + flipClass + cropTop + cropBottom + borderRadius + boxShadow
+    const unskedBorderClasses = "unskewed-border" + flipClass + cropTop + cropBottom + borderRadius
+    
+    if(flattenTop && flattenBottom)return(
+        <>
+            <div style={{border:`${parseInt(borderWidth)}px solid ${borderColor}`, background:background}} className="root no-skew">{children}</div>
+        </>
+    )
     return (
         <>
         <div style={{background:rootBackgroundColor}} className={"root" + cropTop + cropBottom}>
-            <div style={{background:background, border:border}} className={"content-container" + flipClass + magClass + boxShadow + borderRadius} >
+            <div style={{borderWidth:borderWidth, borderColor:borderColor}} className={skewedBorderClasses}/>
+            { flattenTop || flattenBottom ? <div style={{borderWidth:borderWidth, borderColor:borderColor}} className={unskedBorderClasses}/> : null}
+            <div style={{background:background}} className={"content-container" + flipClass + magClass + boxShadow + borderRadius} >
                 <div className={"content" + tiltedContent + flipClass + magClass}>
                     {children}  
-                </div>  
-            </div>        
+                </div>
+                { tiltContent && (flattenTop || flattenBottom) ? <div className={"border-middle"}/> : null}  
+            </div>
         </div>
-        <div style={{backgroundColor:containerBottomBackgroundColor ? containerBottomBackgroundColor : containerBackground, height:spacingAfter, color:"white"}}/>
+        <div style={{backgroundColor:containerBottomBackgroundColor ? containerBottomBackgroundColor : containerBackground, height:spacingAfter, color:"transparent"}}/>
         </>
     )
 }

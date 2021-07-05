@@ -2,22 +2,80 @@
     width:100%;
     position:relative;
 }
-.root.cropTop{
+.root.no-skew{
+    padding:75px 0;
+    width:100%;
+}
+.root.crop-top{
     clip-path:inset(0px 0px -100vh 0px);
 }
-.root.cropBottom{
+.root.crop-bottom{
     clip-path:inset(-100vh 0px 0px 0px);
 }
-.root.cropTop.cropBottom{
+.root .skewed-border,
+.root .unskewed-border{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:25;
+    background-color:transparent;
+    border-style:solid;
+}
+.root .unskewed-border.crop-top{
+    border-right:none;
+    border-bottom:none;
+}
+.root .unskewed-border.flip.crop-top{
+    border-left:none;
+    border-right:solid;
+    border-bottom:none;
+}
+.root .unskewed-border.crop-bottom{
+    border-left:none;
+    border-top:none;
+}
+.root .skewed-border.rounded,
+.root .unskewed-border.rounded{
+    border-radius:10px;
+}
+.root .skewed-border.shadow{
+    box-shadow:0px 0px 5px rgba(0,0,0,0.75);
+}
+.root .unskewed-border.flip.crop-bottom{
+    border-left:solid;
+    border-right:none;
+    border-top:none;
+}
+.root .unskewed-border{
+    border-width:0px;
+}
+.root.crop-top .skewed-border{
+    border-top:none;
+}
+.root.crop-bottom .skewed-border{
+    border-bottom:none;
+}
+.root .skewed-border.crop-top
+.root.crop-top.crop-bottom{
     clip-path:inset(0px 0px 0px 0px);
 }
 .content-container{
+    position:relative;
     display:flex;
     flex-direction:column;
     justify-content: center;    
     transform:skewY(-5deg);
     height:100%;
-    padding:5% 0;
+    padding:75px 0px;
+}
+.content-container.extreme{
+    padding:125px 0px;
+}
+.content-container .padding-top,
+.content-container .padding-bottom{
+    height:75px;
 }
 .content-container.shadow{
     box-shadow:0px 0px 5px rgba(0,0,0,0.75);
@@ -28,62 +86,66 @@
 .content{
     transform:skewY(5deg);
     color:white;
-    padding:50px 0;
 }
 .content.flip{
     transform:skewY(-5deg);
 }
 .content-container.tiny,
-.content.flip.tiny{
+.content.flip.tiny,
+.root .skewed-border.tiny{
     transform:skewY(-1deg);
 }
 .content-container.small,
-.content.flip.small{
+.content.flip.small,
+.root .skewed-border.small{
     transform:skewY(-2deg);
 }
 .content-container.medium,
-.content.flip.medium{
+.content.flip.medium,
+.root .skewed-border.medium{
     transform:skewY(-3.5deg);
 }
 .content-container.large,
-.content.flip.large{
+.content.flip.large,
+.root .skewed-border.large{
     transform:skewY(-5deg);
 }
 .content-container.extreme,
-.content.flip.extreme{
+.content.flip.extreme,
+.root .skewed-border.extreme{
     transform:skewY(-7.5deg);
-}
-.content-container.catastrophic,
-.content.flip.catastrophic{
-    transform:skewY(-10deg);
 }
 .content-container.flip{
     transform:skewY(5deg);
 }
 .content-container.flip.tiny,
-.content.tiny{
+.content.tiny,
+.root .skewed-border.tiny.flip{
     transform:skewY(1deg);
 }
 .content-container.flip.small,
-.content.small{
+.content.small,
+.root .skewed-border.small.flip{
     transform:skewY(2deg);
 }
 .content-container.flip.medium,
-.content.medium{
+.content.medium,
+.root .skewed-border.medium.flip{
     transform:skewY(3.5deg);
 }
 .content-container.flip.large,
-.content.large{
+.content.large,
+.root .skewed-border.large.flip{
     transform:skewY(5deg);
 }
 .content-container.flip.extreme,
-.content.extreme{
+.content.extreme,
+.root .skewed-border.extreme.flip{
     transform:skewY(7.5deg);
 }
-.content-container.flip.catastrophic,
-.content.catastrophic{
-    transform:skewY(10deg);
-}
-.content.tilt{
+.content-container > .content.tilt,
+.content.padding-bottom.tilt{
     transform:skewY(0deg)
 }
+
+
