@@ -34,6 +34,10 @@ tiltedContent | boolean | false | skews the content with the container
 
 #### Updates
 
+
+### 0.2.2
+* fixed issue with overlapping containers both showing borders
+
 ### 0.2.1
 * borders now work when using flattenTop or flattenBottom
 
